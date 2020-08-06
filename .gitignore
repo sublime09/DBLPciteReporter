@@ -105,5 +105,6 @@ ENV/
 .DS_Store
 *.DS_Store
 
-# dataset
-dataset/
+# vsCode workspace
+.vscode/*
+
