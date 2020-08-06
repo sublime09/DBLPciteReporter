@@ -1,10 +1,14 @@
-# DBLP Dataset Parser
+# DBLP Citation Reporter
 
-![Authour](https://img.shields.io/badge/Author-Zhang%20Hao%20(Isaac%20Changhau)-blue.svg) ![Python](https://img.shields.io/badge/Python-3.6.5-brightgreen.svg)
+Creates a report of impactful Computer Science conferences in the DBLP, based on citations.  
 
-It is a python parser for [DBLP dataset](https://dblp.uni-trier.de/), the XML format dumped file can be downloaded [here](http://dblp.org/xml/) from [DBLP Homepage](https://dblp.org/).
+Based on the [DBLPParser](https://github.com/IsaacChanghau/DBLPParser) by Isaac Changhau, a python parser for the dataset of the [DBLP](https://dblp.org/) computer science bibliography.  The XML format of DBLP data can be downloaded as a .dtd file from [here](http://dblp.org/xml/).  
 
-This parser requires `dtd` file, so make sure you have both `dblp-XXX.xml` (dataset) and `dblp-XXX.dtd` files. Note that you also should guarantee that both `xml` and `dtd` files are in the same directory, and the name of `dtd` file shoud same as the name given in the `<!DOCTYPE>` tag of the `xml` file. Such information can be easily accessed through `head dblp-XXX.xml` command. As shown below
+Software needed: make to run scripts easily, wget to download dataset from DBLP, gzip to uncompress dataset, [Python 3](https://www.python.org/) to parse xml.  Windows users can install make, wget, gzip all from [here](http://gnuwin32.sourceforge.net/packages.html).  
+
+## The DBLP Dataset Parser
+
+The parser requires `dtd` file, so make sure you have both `dblp-XXX.xml` (dataset) and `dblp-XXX.dtd` files. Note that you also should guarantee that both `xml` and `dtd` files are in the same directory, and the name of `dtd` file shoud same as the name given in the `<!DOCTYPE>` tag of the `xml` file. Such information can be easily accessed through `head dblp-XXX.xml` command. As shown below
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE dblp SYSTEM "dblp-2017-08-29.dtd">
@@ -28,17 +32,3 @@ def main():
         exit()
     parse_article(dblp_path, save_path, save_to_csv=False)  # default save as json format
 ```
-
-Some extracted results:
-
-**Count the number of all different type of publications**:
-![general](/img/general.png)
-
-**Count the number of all different attributes among all publications**:
-![all_feature](/img/all_feature.png)
-
-**Count the number of five different features of articles**:
-![article_feature](/img/article_feature.png)
-
-**Distribution of published year of articles**:
-![article_year](/img/article_year.png)
