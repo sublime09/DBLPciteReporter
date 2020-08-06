@@ -1,0 +1,2 @@
+# ujson is an ultra fast JSON encoder/decoder
+ujson==3.1.0

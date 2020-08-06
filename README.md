@@ -6,6 +6,13 @@ Based on the [DBLPParser](https://github.com/IsaacChanghau/DBLPParser) by Isaac 
 
 Software needed: make to run scripts easily, wget to download dataset from DBLP, gzip to uncompress dataset, [Python 3](https://www.python.org/) to parse xml.  Windows users can install make, wget, gzip all from [here](http://gnuwin32.sourceforge.net/packages.html).  
 
+Useful make targets and commands:
+- TODO: `make report` will output a small report of the most cited conferences
+- `make dataset` will download and decompress the most recent dataset from DBLP automatically (may take some time)
+- `make clean` will remove the dataset so that a fresh and updated dataset can be downloaded
+- `make venv` will create the python virtual environment and setup the pip package requirements
+- `make clean-venv` will remove the python virtual environment so it can be recreated from scratch
+
 ## The DBLP Dataset Parser
 
 The parser requires `dtd` file, so make sure you have both `dblp-XXX.xml` (dataset) and `dblp-XXX.dtd` files. Note that you also should guarantee that both `xml` and `dtd` files are in the same directory, and the name of `dtd` file shoud same as the name given in the `<!DOCTYPE>` tag of the `xml` file. Such information can be easily accessed through `head dblp-XXX.xml` command. As shown below
